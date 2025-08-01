@@ -63,3 +63,48 @@ npm run test
 PASS  tests/lobbyService.test.ts
 PASS  tests/battleService.test.ts
 
+🔌 API Overview
+REST Endpoints
+Method	Endpoint	Description
+POST	/session	Create a new player
+GET	/lobbies	List lobbies
+POST	/lobbies	Create new lobby
+
+WebSocket Events
+JOIN_LOBBY
+
+PLAYER_READY
+
+BATTLE_MOVE
+
+Each player receives:
+
+LOBBY_STATE
+
+BATTLE_STATE
+
+🧪 Example WebSocket Flow
+json
+Copy
+Edit
+// Player joins lobby
+{
+  "type": "JOIN_LOBBY",
+  "playerId": "abc",
+  "lobbyId": "123"
+}
+
+// Player ready
+{
+  "type": "PLAYER_READY",
+  "playerId": "abc",
+  "lobbyId": "123"
+}
+
+// Player makes move
+{
+  "type": "BATTLE_MOVE",
+  "playerId": "abc",
+  "lobbyId": "123",
+  "move": "attack"
+}
